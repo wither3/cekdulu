@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require("axios");
-const port = require("port");
+const PORT = require("port");
 const app = express();
 
 const FIREBASE_URL = "https://tempatrahasia-201bd-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
