@@ -1,7 +1,11 @@
 const express = require("express");
 const axios = require("axios");
+const cors = require("cors"); // Import CORS
 
 const app = express();
+
+// Aktifkan CORS untuk semua permintaan
+app.use(cors());
 
 const FIREBASE_URL = "https://tempatrahasia-201bd-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
 
@@ -9,6 +13,7 @@ const FIREBASE_URL = "https://tempatrahasia-201bd-default-rtdb.asia-southeast1.f
 app.get("/cek/dataku", async (req, res) => {
   try {
     const response = await axios.get(FIREBASE_URL);
+    
     res.setHeader("Cache-Control", "no-store, max-age=0");
     res.status(200).json(response.data);
   } catch (error) {
