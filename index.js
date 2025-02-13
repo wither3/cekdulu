@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require("axios");
-const PORT = require("port");
+
 const app = express();
 
 const FIREBASE_URL = "https://tempatrahasia-201bd-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
@@ -16,6 +16,5 @@ app.get("/cek/dataku", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server berjalan di http://localhost:${PORT}`);
-});
+// ❌ Jangan gunakan `app.listen()` di Vercel!
+module.exports = app;
